@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 const __dirname = path.resolve();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
@@ -24,4 +24,4 @@ if(process.env.NODE_ENV === "production") {
 }
 
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+app.listen(PORT, () => console.log("Server running on port: " + PORT));
