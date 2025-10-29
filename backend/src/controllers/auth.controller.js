@@ -1,3 +1,4 @@
+import { generateToken } from "../lib/utils.js";
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 
@@ -23,7 +24,7 @@ export const signup = async (req, res) => {
             const hashedPassword = await bcrypt.hash(password, salt)
 
             const newUser = new User({
-                fullName,
+                fullname,
                 email,
                 password: hashedPassword
             })
@@ -36,7 +37,7 @@ export const signup = async (req, res) => {
                     _id:newUser._id,
                     fullName:newUser.fullName,
                     email:newUser.email,
-                    ProfilePic:newUser.ProfilePic,
+                    profilePic:newUser.profilePic,
                 })
             } else{
                 res.status(400).json({message: "Invalid user data"});
